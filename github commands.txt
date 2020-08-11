@@ -1,0 +1,22 @@
+I'll explain a little bit more about the github stuff because we were kind of cut short. I don't know how in-depth he goes in the videos. It's definitely something you'll learn in school eventually. Basically, git is a version control system. You downloaded it, and it keeps track of your project and it's changes. When we push it to github, we're basically just uploading that. The commands you use are:
+
+git add .
+git add lets github know which files you want git to know that you've updated. The . is a regular expression (you might learn about these in school at some point) saying to update all of them. If you wanted to just update one file, you could write the file name instead.
+
+git commit -m "message"
+This is actually committing the updates to git. -m stands for message, and you add a message in the quotation marks. This is so if you look back, know what each version of your project was updating.
+
+git push origin master
+This is uploading (pushing) your local git repo to github. When we linked to github, we named it origin. We could have called it github, but it is standard to call your remote host origin. Master means we're pushing to the master bracnh. This is a bit more comlicated, but it basically just means it's an official change.
+
+An optional command you might use is
+
+git status
+This shows you which files will be updated if you commit your changes. Files that will be updated appear in green. Files that could be updated, but aren't currently set to be updated appear in red. If a file you want to update is red, you can add it to be updated by running
+
+git add filename
+Gravatar for bruce8brewer@gmail.com
+BRUCE BREWER
+14 MINUTES AGO
+0
+I don't know how in-depth he goes in these videos. There used to be a github module as part of this program, but I think it got removed. Hopefully this summery is enough to help you update your github project. It would be good practice to commit your changes after each video, with the message being the video title, then pushing to github when you're done for the day. And then obviously commit and push to github whenever you run into an error you need me to take a look at
