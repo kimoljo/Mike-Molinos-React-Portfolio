@@ -7,6 +7,7 @@ import Home from "./pages/home";
 import About from "./pages/about";
 import Contact from "./pages/contact";
 import Blog from "./pages/blog";
+import PortfolioManager from "./pages/portfolio-manager";
 import PortfolioDetail from "./portfolio/portfolio-detail";
 import Auth from "./pages/auth";
 import NoMatch from "./pages/no-match";
@@ -21,6 +22,7 @@ export default class App extends Component {
 
     this.handleSuccessfulLogin = this.handleSuccessfulLogin.bind(this);
     this.handleUnsuccessfulLogin = this.handleUnsuccessfulLogin.bind(this);
+    this.handleSuccessfulLogout = this.handleSuccessfulLogout.bind(this);
   }
 
   handleSuccessfulLogin() {
@@ -35,6 +37,12 @@ export default class App extends Component {
     });
   }
 
+  handleSuccessfulLogout() {
+    this.setState({
+      loggedInStatus: "NOT_LOGGED_IN"
+    });
+  }
+
   checkLoginStatus() {
     return axios
       .get("https://api.devcamp.space/logged_in", {
@@ -43,10 +51,6 @@ export default class App extends Component {
       .then(response => {
         const loggedIn = response.data.logged_in;
         const loggedInStatus = this.state.loggedInStatus;
-
-        // If loggedIn and status LOGGED_IN => return data
-        // If loggedIn status NOT_LOGGED_IN => update state
-        // If not loggedIn and status LOGGED_IN => update state
 
         if (loggedIn && loggedInStatus === "LOGGED_IN") {
           return loggedIn;
@@ -69,14 +73,19 @@ export default class App extends Component {
     this.checkLoginStatus();
   }
 
+  authorizedPages() {
+    return [<Route path="/portfolio-manager" component={PortfolioManager} />];
+  }
+
   render() {
     return (
       <div className="container">
         <Router>
           <div>
-            <NavigationContainer />
-
-            <h2>{this.state.loggedInStatus}</h2>
+            <NavigationContainer
+              loggedInStatus={this.state.loggedInStatus}
+              handleSuccessfulLogout={this.handleSuccessfulLogout}
+            />
 
             <Switch>
               <Route exact path="/" component={Home} />
@@ -95,6 +104,9 @@ export default class App extends Component {
               <Route path="/about-me" component={About} />
               <Route path="/contact" component={Contact} />
               <Route path="/blog" component={Blog} />
+              {this.state.loggedInStatus === "LOGGED_IN" ? (
+                this.authorizedPages()
+              ) : null}
               <Route
                 exact
                 path="/portfolio/:slug"
@@ -107,4 +119,4 @@ export default class App extends Component {
       </div>
     );
   }
-}
+} 
