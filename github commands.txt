@@ -20,3 +20,12 @@ BRUCE BREWER
 14 MINUTES AGO
 0
 I don't know how in-depth he goes in these videos. There used to be a github module as part of this program, but I think it got removed. Hopefully this summery is enough to help you update your github project. It would be good practice to commit your changes after each video, with the message being the video title, then pushing to github when you're done for the day. And then obviously commit and push to github whenever you run into an error you need me to take a look at
+
+NOTE: MAKE SURE TO USE CORRECT DOMAIN NAME* ON THE FOLLOWING FILES:
+
+- portfolio-manager.js
+- portfolio-form.js
+
+*https://mikemolinos.devcamp.space/portfolio/portfolio_items
+
+(source - https://devcamp.space/project/portfolio)
