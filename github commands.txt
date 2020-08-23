@@ -27,6 +27,8 @@ NOTE:
 
 - portfolio-manager.js
 - portfolio-form.js
+- blog.js
+- blog-detail.js
 
 *https://mikemolinos.devcamp.space/portfolio/portfolio_items
 
