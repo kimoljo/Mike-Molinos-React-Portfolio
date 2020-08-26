@@ -37,3 +37,12 @@ NOTE:
 2. MAKE SURE YOUR NAME APPEARS ON THE FOLLOWING FILES:
 
 -navigation-container.js
+
+
+3. npm install items:
+
+-npm install
+-
+-
+- npm i react-modal
+- npm i draft-js react-draft-wysiwyg draftjs-to-html html-to-draftjs
