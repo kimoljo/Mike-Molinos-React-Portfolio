@@ -41,9 +41,10 @@ NOTE:
 
 3. npm install items:
 
--npm install
--
--
+- npm install
+- npm install devcamp-js-builder -g -f
+- npm i moment 
 - npm i react-modal
 - npm i draft-js react-draft-wysiwyg draftjs-to-html html-to-draftjs
 - npm i react-html-parser
+- npm i react-truncate striptags
