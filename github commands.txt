@@ -46,3 +46,4 @@ NOTE:
 -
 - npm i react-modal
 - npm i draft-js react-draft-wysiwyg draftjs-to-html html-to-draftjs
+- npm i react-html-parser
