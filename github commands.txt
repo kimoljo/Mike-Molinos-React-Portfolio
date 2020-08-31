@@ -48,3 +48,6 @@ NOTE:
 - npm i draft-js react-draft-wysiwyg draftjs-to-html html-to-draftjs
 - npm i react-html-parser
 - npm i react-truncate striptags
+- git push heroku master*
+
+* after downloading Heroku and creating a FREE account. You should also have created a FREE GitHub account before this command works.
