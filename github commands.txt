@@ -41,8 +41,9 @@ NOTE:
 
 3. npm install items:
 
-- npm install
-- npm install devcamp-js-builder -g -f
+- npm install devcamp-js-builder -g (add "-f" to force install in case you get errors)
+- js-generate (pick es6 syntax)
+- npm start (Project is running at http://localhost:3000/)
 - npm i moment 
 - npm i react-modal
 - npm i draft-js react-draft-wysiwyg draftjs-to-html html-to-draftjs
