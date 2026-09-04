@@ -1,4 +1,4 @@
-/* Portfolio Preservation + Light Refresh v1
+/* Portfolio Preservation + Light Refresh v2
    Keeps the recovered React bundle untouched.
 */
 (function () {
@@ -24,21 +24,35 @@
   function refreshAboutPage() {
     if (window.location.pathname !== "/about-me") return;
 
-    var rightColumn = document.querySelector(".content-page-wrapper .right-column");
+    var page = document.querySelector(".content-page-wrapper");
+    if (!page) return;
+
+    var leftColumn = page.querySelector(".left-column");
+    if (leftColumn) {
+      var newImage = 'url("/static/assets/images/bio/visual-archive-about.jpg")';
+      if (leftColumn.style.getPropertyValue("background-image") !== newImage) {
+        leftColumn.style.setProperty("background-image", newImage, "important");
+        leftColumn.style.setProperty("background-size", "cover", "important");
+        leftColumn.style.setProperty("background-position", "center", "important");
+        leftColumn.style.setProperty("background-repeat", "no-repeat", "important");
+      }
+    }
+
+    var rightColumn = page.querySelector(".right-column");
     if (!rightColumn) return;
 
     var paragraphs = rightColumn.querySelectorAll("p");
-    if (paragraphs.length < 2) return;
+    if (paragraphs.length >= 2) {
+      if (paragraphs[0].textContent !== aboutParagraphOne) {
+        paragraphs[0].textContent = aboutParagraphOne;
+      }
+      if (paragraphs[1].textContent !== aboutParagraphTwo) {
+        paragraphs[1].textContent = aboutParagraphTwo;
+      }
 
-    if (paragraphs[0].textContent !== aboutParagraphOne) {
-      paragraphs[0].textContent = aboutParagraphOne;
+      paragraphs[0].classList.add("portfolio-about-copy");
+      paragraphs[1].classList.add("portfolio-about-copy");
     }
-    if (paragraphs[1].textContent !== aboutParagraphTwo) {
-      paragraphs[1].textContent = aboutParagraphTwo;
-    }
-
-    paragraphs[0].classList.add("portfolio-about-copy");
-    paragraphs[1].classList.add("portfolio-about-copy");
 
     if (!rightColumn.querySelector(".portfolio-credential")) {
       var credential = document.createElement("p");
@@ -46,6 +60,23 @@
       credential.textContent = "Digital Design — Mountainland Technical College, 2021";
       rightColumn.appendChild(credential);
     }
+  }
+
+  function refreshContactPage() {
+    if (window.location.pathname !== "/contact") return;
+
+    var rightColumn = document.querySelector(".content-page-wrapper .right-column");
+    if (!rightColumn || rightColumn.querySelector(".portfolio-contact-refresh")) return;
+
+    rightColumn.innerHTML =
+      '<div class="portfolio-contact-refresh">' +
+        '<h2>Get in Touch</h2>' +
+        '<p>Thanks for viewing the portfolio. For creative projects, multimedia work, or professional collaboration, please get in touch.</p>' +
+        '<div class="portfolio-contact-item">' +
+          '<span class="contact-label">Email</span>' +
+          '<a href="mailto:msm.com@gmail.com">msm.com@gmail.com</a>' +
+        '</div>' +
+      '</div>';
   }
 
   function redirectOldBlogRoute() {
@@ -59,6 +90,7 @@
   function applyRefresh() {
     removeBlogNavigation();
     refreshAboutPage();
+    refreshContactPage();
   }
 
   if (redirectOldBlogRoute()) return;
@@ -69,8 +101,6 @@
     applyRefresh();
   }
 
-  /* React can replace navigation/page DOM during route changes.
-     Re-apply only the lightweight presentation changes when that happens. */
   var observer = new MutationObserver(function () {
     applyRefresh();
   });

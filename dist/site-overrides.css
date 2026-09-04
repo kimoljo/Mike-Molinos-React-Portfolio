@@ -1,4 +1,4 @@
-/* Portfolio Preservation + Light Refresh v1 */
+/* Portfolio Preservation + Light Refresh v2 */
 
 /* Remove the public name label while preserving the authenticated sign-out icon. */
 .nav-wrapper .right-side {
@@ -12,7 +12,7 @@
   margin-left: 0;
 }
 
-/* About-page qualification line added by site-overrides.js */
+/* About-page qualification line */
 .content-page-wrapper .right-column .portfolio-credential {
   margin-top: 22px;
   font-size: 0.95rem;
@@ -21,8 +21,43 @@
   opacity: 0.72;
 }
 
-/* Keep refreshed About copy comfortably readable. */
 .content-page-wrapper .right-column .portfolio-about-copy {
   max-width: 680px;
   line-height: 1.65;
+}
+
+/* Refreshed Contact page */
+.portfolio-contact-refresh {
+  max-width: 620px;
+  line-height: 1.65;
+}
+
+.portfolio-contact-refresh h2 {
+  margin: 0 0 18px;
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+.portfolio-contact-refresh p {
+  margin: 0 0 28px;
+  font-size: 1.05rem;
+}
+
+.portfolio-contact-refresh .contact-label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.65;
+}
+
+.portfolio-contact-refresh a {
+  font-size: 1.1rem;
+  text-decoration: none;
+}
+
+.portfolio-contact-refresh a:hover {
+  text-decoration: underline;
 }
