@@ -1,0 +1,28 @@
+/* Portfolio Preservation + Light Refresh v1 */
+
+/* Remove the public name label while preserving the authenticated sign-out icon. */
+.nav-wrapper .right-side {
+  font-size: 0;
+  min-width: 24px;
+  justify-content: flex-end;
+}
+
+.nav-wrapper .right-side a {
+  font-size: 18px;
+  margin-left: 0;
+}
+
+/* About-page qualification line added by site-overrides.js */
+.content-page-wrapper .right-column .portfolio-credential {
+  margin-top: 22px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  opacity: 0.72;
+}
+
+/* Keep refreshed About copy comfortably readable. */
+.content-page-wrapper .right-column .portfolio-about-copy {
+  max-width: 680px;
+  line-height: 1.65;
+}
